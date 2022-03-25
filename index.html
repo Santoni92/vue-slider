@@ -31,7 +31,13 @@
                 <div class="thumbs">
                     <div class="prev" @click = "showPrevSlide" v-show="activeSlideIndex > 0"></div>   <!--per scorrere in dietro con l'immagine selezionata e che si vorrà visualizzare in grande-->
                     <div class="next" @click = "showNextSlide" v-show="activeSlideIndex < slides.length - 1"></div>   <!--per scorrere in avanti con l'immagine selezionata e che si vorrà visualizzare in grande-->
-                    <div v-for="slide in slides" class="thumb" class="active">
+                    <!--aggiunta la direttiva v-show cosicchè in base al valore dell'indice 'activeSlideIndex' che mi dice quale
+                     slide è attiva ossia quale slide si vuol visualizzare la freccia per andare alla successiva scompare
+                     (perchè non ci sono piu immagini successivi da visualizzare) e analogo discorso per la freccia che mi fa
+                      andare alle immagini precedenti-->
+
+
+                    <div v-for="slide in slides"  v-bind:class="checkIfActive(slide)" >
                         <img v-bind:src="slide.image"  v-bind:alt="slide.title"/>
                     </div>
                     <!--gestisco con vue le varie thumbnails-->
