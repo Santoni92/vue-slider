@@ -17,7 +17,8 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img src="img/01.jpg" alt="Svezia" />
+                    <!--img src="img/01.jpg" alt="Svezia" /-->
+                    <img v-bind:src="slides[activeSlideIndex].image" v-bind:alt="slides[activeSlideIndex].title" />
                     <div class="text">
                         <h3>Svezia</h3>
                         <p>
@@ -28,8 +29,8 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
+                    <div class="prev" @click = "showPrevSlide"></div>
+                    <div class="next" @click = "showNextSlide"></div>
                     <div v-for="slide in slides" class="thumb" class="active">
                         <img v-bind:src="slide.image"  v-bind:alt="slide.title"/>
                     </div>

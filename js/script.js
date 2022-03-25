@@ -34,6 +34,24 @@ const app = new Vue(
         data:{  //struttura dati
             slides,
             activeSlideIndex : 0    //indice dell'array che mi punta alla slide attiva(quella che sto visualizzando)
+        },
+
+        methods:{
+            showPrevSlide(){
+                if(this.activeSlideIndex > 0){
+                    this.activeSlideIndex--;
+                }else{
+                    this.activeSlideIndex = this.activeSlideIndex - 1;
+                }
+            },
+            showNextSlide(){
+                if(this.activeSlideIndex < this.slides.length - 1)
+                {
+                    this.activeSlideIndex++;
+                }else{
+                    this.activeSlideIndex = 0;
+                }
+            }
         }
     }
 )
